@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  l2-challenge:
+    image: servico-de-empacotamento  # Nome da imagem que será construída no Dockerfile
+    container_name:  servico-de-empacotamento # Nome do contêiner
+    build:
+      context: .
+      dockerfile: Dockerfile  # Caminho para o Dockerfile
+    ports:
+      - "8080:8080"  # Mapeamento de portas (porta do host: porta do contêiner)
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker  # Variável de ambiente para perfil do Spring
